@@ -107,7 +107,7 @@ function Footer() {
 function App() {
      return (
           <div>
-               <h1 id="title">日付と時間</h1>
+               <h1 id="title">日付と時刻</h1>
                <Content />
                <Footer />
           </div>
