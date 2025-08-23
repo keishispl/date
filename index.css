@@ -1,0 +1,124 @@
+:root {
+     --font-color: #cecfd0;
+}
+
+body {
+     font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+     background-image: url("https://keishispl.github.io/img/wallpaper/self_drawn.png");
+     background-size: cover;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-position: center center;
+     backdrop-filter: blur(10px);
+     margin: 0;
+     color: var(--font-color);
+     overscroll-behavior: none;
+     user-select: none;
+     -webkit-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     -o-user-select: none;
+}
+
+main {
+     display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+     justify-content: center;
+     text-align: center;
+     margin: 0;
+     padding: 0;
+     width: 100vw;
+}
+
+footer {
+     text-align: center;
+     margin: 0;
+     padding: 0;
+     width: 100vw;
+
+     a {
+          color: rgb(182, 205, 255);
+          text-decoration: none;
+          transition: .1s text-shadow ease, .1s filter ease;
+     }
+
+     a:hover {
+          text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.5);
+          filter: brightness(1.2);
+     }
+}
+
+#title {
+     font-size: 40px;
+     letter-spacing: 5px;
+     padding: 50px 0;
+     margin: 0;
+     line-height: 1em;
+     text-align: center;
+}
+
+.component {
+     margin: 20px;
+     padding: 50px 20px;
+     border-radius: 20px;
+     background-color: rgba(20, 19, 26, 0.75);
+     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+     height: fit-content;
+     flex-basis: calc(50% - 80px);
+
+     h1 {
+          display: block;
+          font-size: 40px;
+          letter-spacing: 10px;
+          margin: 0;
+
+          a {
+               font-size: 20px;
+               line-height: 20px;
+               margin: 0;
+               font-weight: normal;
+               display: inline-block;
+
+               &.mid {
+                    transform: translateY(-10px);
+               }
+          }
+     }
+
+     p {
+          font-size: 20px;
+          margin: 10px 0;
+     }
+}
+
+.full-cell {
+     flex-basis: calc(100% - 80px);
+}
+
+@media screen and (max-width: 1080px) {
+     .component {
+          flex-basis: calc(100% - 80px);
+     }
+}
+
+@media screen and (max-width: 600px) {
+     .component {
+          h1 {
+               font-size: 30px;
+
+               a {
+                    font-size: 15px;
+                    line-height: 15px;
+
+                    &.mid {
+                         transform: translateY(-7.5px);
+                    }
+               }
+          }
+
+          p {
+               font-size: 15px;
+          }
+     }
+}
