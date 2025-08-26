@@ -18,6 +18,7 @@ body {
      -moz-user-select: none;
      -ms-user-select: none;
      -o-user-select: none;
+     white-space: pre;
 }
 
 main {
@@ -121,4 +122,16 @@ footer {
                font-size: 15px;
           }
      }
+}
+
+select {
+     font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+     font-size: 16px;
+     padding: 10px;
+     margin: 10px;
+     width: 125px;
+     background-color: rgb(0, 0, 0, 0.25);
+     color: var(--font-color);
+     border-radius: 10px;
+     border: 1px solid var(--font-color);
 }

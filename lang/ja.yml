@@ -1,0 +1,28 @@
+title: 日付と時刻
+description: 日付と時刻といろいろ物
+
+weekday.0: 日曜日
+weekday.1: 月曜日
+weekday.2: 火曜日
+weekday.3: 水曜日
+weekday.4: 木曜日
+weekday.5: 金曜日
+weekday.6: 土曜日
+
+time.day: /0/日
+time.hour: /0/時
+time.minute: /0/分
+time.second: /0/秒
+
+time: /0/;/1/;/2/
+time.ms: ./0/
+time.left: 明日まであと/0/
+date: /0/年/1/月/2/日
+percent.start: /0/の
+percent: /0/%
+percent.end: が完了
+percent.left: 殘り/0/
+
+credits.code: JavaScript + React + JSXで作成てる
+credits.copyright: keishisplが作成したサイト
+credits.source: ソースコード

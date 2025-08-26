@@ -1,0 +1,28 @@
+title: Date and Time
+description: Date and Time and Stuff
+
+weekday.0: Sunday
+weekday.1: Monday
+weekday.2: Tuesday
+weekday.3: Wednesday
+weekday.4: Thursday
+weekday.5: Friday
+weekday.6: Saturday
+
+time.day: /0/d 
+time.hour: /0/hr 
+time.minute: /0/m 
+time.second: /0/s
+
+time: /0/;/1/;/2/
+time.ms: ./0/
+time.left: /0/ left till tomorrow
+date: /0/-/1/-/2/
+percent.start: /0/ is 
+percent: /0/%
+percent.end:  complete
+percent.left: /0/ left till next year
+
+credits.code: Made with JavaScript + React + JSX
+credits.copyright: Made by keishispl
+credits.source: Source Code
