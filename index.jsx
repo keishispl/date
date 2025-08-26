@@ -1,4 +1,13 @@
+/**
+ * 残り日数
+ * @returns {JSX.Element}
+ */
 function percentageToNextYear() {
+     /**
+      * 残り時間
+      * @param {*} end - 終了日
+      * @returns {String} 残り日数
+      */
      function showRemaining(end) {
           var _second = 1000;
           var _minute = _second * 60;
@@ -13,12 +22,12 @@ function percentageToNextYear() {
           var minutes = Math.floor((distance % _hour) / _minute);
           var seconds = Math.floor((distance % _minute) / _second);
 
-          return days + "日" + hours + "時" + minutes + "分" + seconds + "秒";
+          return `${days}日${hours}時${minutes}分${seconds}秒`;
      }
 
      var now = new Date();
      var start = new Date(now.getFullYear(), 0, 0);
-     var end = new Date(now.getFullYear() + 1, 0, 1);
+     var end = new Date(now.getFullYear() + 1, 0, 1, 0, 0, 1);
      var percent = (now - start) / (end - start) * 100;
 
      var rounded = Math.round(percent * 10000) / 10000;
@@ -32,19 +41,34 @@ function percentageToNextYear() {
      )
 }
 
+/**
+ * 日付
+ * @returns {JSX.Element}
+ */
 function getDate() {
      var now = new Date();
-     var date = now.getFullYear() + "年" + (now.getMonth() + 1) + "月" + now.getDate() + "日";
+
      return (
           <div className="component">
-               <h1>{date}</h1>
+               <h1>{now.getFullYear()}年{now.getMonth() + 1}月{now.getDate()}日</h1>
                <p>{["日", "月", "火", "水", "木", "金", "土"][now.getDay()]}曜日</p>
           </div>
      )
 }
 
+/**
+ * 時刻
+ * @returns {JSX.Element}
+ */
 function getTime() {
-     function format(n, length, s=null) {
+     /**
+      * 数値を指定した桁数にする
+      * @param {Integer|Number|String} n - 数値
+      * @param {Integer} length - 桁数
+      * @param {Boolean|null} s - 0埋め
+      * @returns {String} 指定した桁数になった数値
+      */
+     function format(n, length, s = null) {
           n = n.toString();
           while (n.length < length) {
                if (s) {
@@ -55,6 +79,12 @@ function getTime() {
           }
           return n;
      }
+
+     /**
+      * 残り時間
+      * @param {*} end 
+      * @returns 
+      */
      function showRemaining(end) {
           var _second = 1000;
           var _minute = _second * 60;
@@ -69,22 +99,27 @@ function getTime() {
           var minutes = Math.floor((distance % _hour) / _minute);
           var seconds = Math.floor((distance % _minute) / _second);
 
-          return (days * 24 + hours) + "時" + minutes + "分" + seconds + "秒";
+          return `${(days * 24 + hours)}時${minutes}分${seconds}秒`;
      }
 
      var now = new Date();
-     var tmr = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+     var tmr = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 1);
      var time = format(now.getHours(), 2) + ":" + format(now.getMinutes(), 2) + ":" + format(now.getSeconds(), 2);
+     var ms = format(Math.round(now.getMilliseconds() / 10), 2, true) === "100" ? "00" : format(Math.round(now.getMilliseconds() / 10), 2, true);
+     
      return (
           <div className="component">
-               <h1>{time}<a>.{format(Math.round(now.getMilliseconds() / 10), 2, true) === "100" ? "00" : format(Math.round(now.getMilliseconds() / 10), 2, true)}</a></h1>
+               <h1>{time}<a>.{ms}</a></h1>
                <p>明日まであと{showRemaining(tmr)}</p>
           </div>
      )
 }
 
+/**
+ * コンテンツ
+ * @returns {JSX.Element}
+ */
 function Content() {
-
      return (
           <main>
                {getDate()}
@@ -94,6 +129,10 @@ function Content() {
      )
 }
 
+/**
+ * フッター
+ * @returns {JSX.Element}
+ */
 function Footer() {
      return (
           <footer>
@@ -104,6 +143,10 @@ function Footer() {
      )
 }
 
+/**
+ * アプリ
+ * @returns {JSX.Element}
+ */
 function App() {
      return (
           <div>
@@ -114,6 +157,9 @@ function App() {
      )
 }
 
+/**
+ * 一定間隔で再描画
+ */
 setInterval(() => {
      ReactDOM.render(<App />, document.body);
 }, 1);
