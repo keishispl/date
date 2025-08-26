@@ -18,7 +18,7 @@ time: /0/;/1/;/2/
 time.ms: ./0/
 time.left: 到明天還有/0/
 date: /0/年/1/月/2/日
-percent.start: /0/年以經完成了
+percent.start: /0/年已完成了
 percent: /0/%
 percent.end: 
 percent.left: 還有/0/
