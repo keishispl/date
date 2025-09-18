@@ -1,5 +1,7 @@
 :root {
      --font-color: #cecfd0;
+     --link-color: #9cbbda;
+     overscroll-behavior: none;
 }
 
 body {
@@ -12,7 +14,6 @@ body {
      backdrop-filter: blur(10px);
      margin: 0;
      color: var(--font-color);
-     overscroll-behavior: none;
      user-select: none;
      -webkit-user-select: none;
      -moz-user-select: none;
@@ -39,14 +40,14 @@ footer {
      width: 100vw;
 
      a {
-          color: rgb(182, 205, 255);
+          color: var(--link-color);
           text-decoration: none;
-          transition: .1s text-shadow ease, .1s filter ease;
      }
 
      a:hover {
-          text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.5);
-          filter: brightness(1.2);
+          filter: brightness(105%);
+          text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+          transition: filter 0.1s ease, text-shadow 0.1s ease;
      }
 }
 
@@ -62,17 +63,20 @@ footer {
 .component {
      margin: 20px;
      padding: 50px 20px;
+     background: rgba(0, 0, 0, 0.2);
+     box-shadow: 0px 0px 7.5px rgba(227, 228, 237, .2);
+     border: 2px solid rgba(255, 255, 255, .2);
+     backdrop-filter: blur(10px);
      border-radius: 20px;
-     background-color: rgba(20, 19, 26, 0.75);
-     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
      height: fit-content;
-     flex-basis: calc(50% - 80px);
+     flex-basis: calc(50% - 84px);
 
      h1 {
           display: block;
           font-size: 40px;
           letter-spacing: 10px;
           margin: 0;
+          transition: font-size 0.15s ease, letter-spacing 0.15s ease;
 
           a {
                font-size: 20px;
@@ -80,9 +84,11 @@ footer {
                margin: 0;
                font-weight: normal;
                display: inline-block;
+               transition: font-size 0.15s ease, line-height 0.15s ease;
 
                &.mid {
                     transform: translateY(-10px);
+                    transition: transform 0.15s ease;
                }
           }
      }
@@ -90,6 +96,7 @@ footer {
      p {
           font-size: 20px;
           margin: 10px 0;
+          transition: font-size 0.15s ease;
      }
 }
 
@@ -103,9 +110,34 @@ footer {
      }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
+     .component {
+          max-width: calc(100% - 80px);
+
+          h1 {
+               letter-spacing: 10px;
+               font-size: 35px;
+
+               a {
+                    font-size: 17.5px;
+                    line-height: 17.5px;
+
+                    &.mid {
+                         transform: translateY(-7.5px);
+                    }
+               }
+          }
+
+          p {
+               font-size: 17.5px;
+          }
+     }
+}
+
+@media screen and (max-width: 650px) {
      .component {
           h1 {
+               letter-spacing: 5px;
                font-size: 30px;
 
                a {
@@ -125,13 +157,33 @@ footer {
 }
 
 select {
+     backface-visibility: hidden;
+     -webkit-backface-visibility: hidden;
+     -ms-backface-visibility: hidden;
+     -moz-backface-visibility: hidden;
+     -o-backface-visibility: hidden;
+     background: transparent;
+     box-shadow: 2px 2px 5px rgba(227, 228, 237, .2);
+     border: 2px solid rgba(255, 255, 255, .2);
+     backdrop-filter: blur(10px);
+     border-radius: 5px;
      font-family: "Hiragino Kaku Gothic ProN", sans-serif;
      font-size: 16px;
-     padding: 10px;
-     margin: 10px;
-     width: 125px;
-     background-color: rgb(0, 0, 0, 0.25);
      color: var(--font-color);
-     border-radius: 10px;
-     border: 1px solid var(--font-color);
+     line-height: 38px;
+     margin: .5em;
+     padding: 10px 15px;
+     letter-spacing: 2px;
+     text-align: center;
+     text-decoration: none;
+     box-sizing: border-box;
+     display: inline-block;
+     cursor: pointer;
+     transition: .1s box-shadow ease, .1s background-color ease, .1s border ease;
+
+     &:hover {
+          box-shadow: 2px 2px 7.5px rgba(227, 228, 237, .5);
+          background-color: rgba(255, 255, 255, .1);
+          border: 2px solid rgba(255, 255, 255, .3);
+     }
 }
