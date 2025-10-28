@@ -156,6 +156,32 @@ footer {
      }
 }
 
+@media screen and (max-width: 500px) {
+     .component {
+          padding: 30px 20px;
+
+          h1 {
+               letter-spacing: 5px;
+               font-size: 25px;
+
+               a {
+                    font-size: 12px;
+                    line-height: 15px;
+                    letter-spacing: 2.5px;
+
+                    &.mid {
+                         transform: translateY(-5px);
+                    }
+               }
+          }
+
+          p {
+               font-size: 12px;
+               margin: 5px 0 0 0;
+          }
+     }
+}
+
 select {
      backface-visibility: hidden;
      -webkit-backface-visibility: hidden;
